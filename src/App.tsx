@@ -124,48 +124,51 @@
 import { useState } from "react";
 
 function App() {
+  const [ingredients, setIngredients] = useState("");
   const [recipe, setRecipe] = useState("");
 
   const generateRecipe = () => {
-    setRecipe("AI-generated recipe will appear here.");
+    setRecipe(`Recipe for: ${ingredients} will appear here.`);
   };
 
   return (
-    <div style={{ textAlign: "center", marginTop: "100px" }}>
-      
-      {/* Title */}
-      <h1 style={{ fontSize: "40px", marginBottom: "20px" }}>
-        AI Recipe Generator
-      </h1>
+    <div style={{
+      maxWidth: "600px",
+      margin: "100px auto",
+      textAlign: "center"
+    }}>
 
-      {/* Button */}
+      <h1>AI Recipe Generator</h1>
+
+      <input
+        type="text"
+        placeholder="Enter ingredients (e.g., chicken, rice)"
+        value={ingredients}
+        onChange={(e) => setIngredients(e.target.value)}
+        style={{
+          width: "100%",
+          padding: "10px",
+          marginTop: "20px",
+          fontSize: "16px"
+        }}
+      />
+
       <button
         onClick={generateRecipe}
         style={{
-          padding: "12px 24px",
-          fontSize: "16px",
-          borderRadius: "6px",
-          border: "1px solid #ccc",
-          cursor: "pointer",
-          backgroundColor: "#f5f5f5"
+          marginTop: "20px",
+          padding: "10px 20px",
+          fontSize: "16px"
         }}
       >
         Generate Recipe
       </button>
 
-      {/* Output */}
-      <p
-        style={{
-          marginTop: "30px",
-          fontSize: "18px",
-          color: "#555"
-        }}
-      >
+      <p style={{ marginTop: "30px" }}>
         {recipe}
       </p>
     </div>
   );
 }
 
-export default App;
-
+export default App
