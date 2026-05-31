@@ -127,25 +127,40 @@ function App() {
   const [recipe, setRecipe] = useState("");
 
   const generateRecipe = () => {
-    setRecipe("Here is your AI-generated recipe (we will connect AI next!)");
+    setRecipe("AI-generated recipe will appear here.");
   };
 
   return (
-    <div style={{ textAlign: "center", marginTop: "50px" }}>
-      <h1> 🍳 AI Recipe Generator</h1>
+    <div style={{ textAlign: "center", marginTop: "100px" }}>
+      
+      {/* Title */}
+      <h1 style={{ fontSize: "40px", marginBottom: "20px" }}>
+        AI Recipe Generator
+      </h1>
 
-      <button 
+      {/* Button */}
+      <button
         onClick={generateRecipe}
         style={{
-          padding: "10px 20px",
+          padding: "12px 24px",
           fontSize: "16px",
-          cursor: "pointer"
+          borderRadius: "6px",
+          border: "1px solid #ccc",
+          cursor: "pointer",
+          backgroundColor: "#f5f5f5"
         }}
       >
         Generate Recipe
       </button>
 
-      <p style={{ marginTop: "20px", fontSize: "18px" }}>
+      {/* Output */}
+      <p
+        style={{
+          marginTop: "30px",
+          fontSize: "18px",
+          color: "#555"
+        }}
+      >
         {recipe}
       </p>
     </div>
@@ -153,3 +168,4 @@ function App() {
 }
 
 export default App;
+
