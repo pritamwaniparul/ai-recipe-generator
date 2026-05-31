@@ -132,7 +132,7 @@ function App() {
 
   return (
     <div style={{ textAlign: "center", marginTop: "50px" }}>
-      <h1> AI Recipe Generator</h1>
+      <h1> 🍳 AI Recipe Generator</h1>
 
       <button 
         onClick={generateRecipe}
