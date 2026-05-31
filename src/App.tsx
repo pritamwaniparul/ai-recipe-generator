@@ -128,47 +128,46 @@ function App() {
   const [recipe, setRecipe] = useState("");
 
   const generateRecipe = () => {
-    setRecipe(`Recipe for: ${ingredients} will appear here.`);
+    setRecipe(`Recipe for "${ingredients}" will appear here.`);
   };
 
   return (
-    <div style={{
-      maxWidth: "600px",
-      margin: "100px auto",
-      textAlign: "center"
-    }}>
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
+      
+      <div className="bg-white shadow-xl rounded-xl p-8 w-full max-w-lg">
 
-      <h1>AI Recipe Generator</h1>
+        {/* Title */}
+        <h1 className="text-3xl font-semibold text-center mb-6">
+          AI Recipe Generator
+        </h1>
 
-      <input
-        type="text"
-        placeholder="Enter ingredients (e.g., chicken, rice)"
-        value={ingredients}
-        onChange={(e) => setIngredients(e.target.value)}
-        style={{
-          width: "100%",
-          padding: "10px",
-          marginTop: "20px",
-          fontSize: "16px"
-        }}
-      />
+        {/* Input */}
+        <input
+          type="text"
+          placeholder="Enter ingredients (e.g., chicken, rice)"
+          value={ingredients}
+          onChange={(e) => setIngredients(e.target.value)}
+          className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
 
-      <button
-        onClick={generateRecipe}
-        style={{
-          marginTop: "20px",
-          padding: "10px 20px",
-          fontSize: "16px"
-        }}
-      >
-        Generate Recipe
-      </button>
+        {/* Button */}
+        <button
+          onClick={generateRecipe}
+          className="w-full mt-4 bg-blue-600 text-white py-3 rounded-md hover:bg-blue-700 transition"
+        >
+          Generate Recipe
+        </button>
 
-      <p style={{ marginTop: "30px" }}>
-        {recipe}
-      </p>
+        {/* Output */}
+        {recipe && (
+          <div className="mt-6 bg-gray-100 p-4 rounded-md">
+            <p className="text-gray-700">{recipe}</p>
+          </div>
+        )}
+
+      </div>
     </div>
   );
 }
 
-export default App
+export default App;
